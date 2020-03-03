@@ -145,6 +145,7 @@ app.post('/api/users/register',(req,res)=>{
 })
 
 app.post('/api/users/login', (req,res)=> {
+    console.log(req.body)
     User.findOne({email: req.body.email},(err,user)=>{
         if(!user) return res.status(400).json({loginSuccess: false, message: "Auth failed, Email not found"})
         user.comparePassword(req.body.password,(err,isMatch)=>{
