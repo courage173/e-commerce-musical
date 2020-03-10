@@ -30,6 +30,45 @@ const {admin} = require('./middleware/admin')
 //                   Products                 //
 //=====================================================
 
+app.post('/api/product/shop',(req,res)=>{
+    let order  = req.body.order ? req.body.order : 'desc'
+    let sortBy  = req.body.sortBy ? req.body.sortBy : '_id'
+    let limit  = req.body.limit ? parseInt(req.body.limit) : 100
+    let skip = parseInt(req.body.skip)
+   
+    let findArgs ={}
+
+    for(let key in req.body.filters){
+        if(req.body.filters[key].length > 0){
+            if(key==='price'){
+                findArgs[key] = {
+                    $gte: req.body.filters[key][0],
+                    $lte: req.body.filters[key][1]
+                }
+            }else{
+                findArgs[key] = req.body.filters[key]
+            }
+        }
+    }
+    //bring only products whose publish is true
+    findArgs['publish'] = true
+    Product.find(findArgs).
+    populate('brand').
+    populate('wood').
+    sort([[sortBy,order]]).
+    skip(skip).
+    limit(limit).
+    exec((err,articles)=>{
+        if(err) return res.status(400).send(err);
+        res.status(200).json({
+            size: articles.length,
+            articles
+        })
+    })
+    
+})
+
+
 app.get('/api/product/articles',(req,res)=>{
     let order = req.query.order? req.query.order: 'asc'
     let sortBy = req.query.sortBy ? req.query.sortBy: '_id' 
@@ -42,7 +81,7 @@ app.get('/api/product/articles',(req,res)=>{
     limit(limit).
     exec((err,docs)=>{
         if(err) return res.status(400).json({success:false,err})
-        return res.status(200).json({success:true,docs})
+        return res.send(docs)
     })
 })
 
@@ -66,7 +105,7 @@ app.get('/api/product/articles_by_id',(req,res)=>{
     populate('wood').
     exec((err,docs)=>{
         if(err) return res.status(400).json({success:false,err})
-        return res.status(200).json({success:true,docs})
+        return res.send(docs)
     })
 })
 
@@ -96,7 +135,7 @@ app.post('/api/product/wood',auth,admin,(req,res)=>{
 app.get('/api/product/wood',(req,res)=>{
      Wood.find((err,wood)=>{
         if(err) return res.status(400).send(err)
-        return res.status(200).json({wood})
+        return res.send(wood)
     })
 })
 
@@ -122,7 +161,7 @@ app.post('/api/product/brand',auth,admin,(req,res)=>{
 app.get('/api/product/brand',(req,res)=>{
      Brand.find({},(err,brands)=>{
         if(err) return res.status(400).send(err)
-        res.status(200).send({brands})
+        res.send(brands)
     })
 })
 
@@ -145,7 +184,6 @@ app.post('/api/users/register',(req,res)=>{
 })
 
 app.post('/api/users/login', (req,res)=> {
-    console.log(req.body)
     User.findOne({email: req.body.email},(err,user)=>{
         if(!user) return res.status(400).json({loginSuccess: false, message: "Auth failed, Email not found"})
         user.comparePassword(req.body.password,(err,isMatch)=>{
@@ -165,7 +203,7 @@ app.post('/api/users/login', (req,res)=> {
 
 app.get('/api/users/auth',auth,(req,res)=>{
     res.status(200).json({
-        isAmin: req.user.role === 0 ? false : true,
+        isAdmin: req.user.role === 0 ? false : true,
         isAuth: true,
         email: req.user.email,
         name: req.user.name,

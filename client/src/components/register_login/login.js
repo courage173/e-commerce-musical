@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import FormField from '../utils/form/formField'
 import {connect} from 'react-redux'
+
+import FormField from '../utils/form/formField'
 import {update, generateData,isFormValid} from '../utils/formActions'
 import {loginUser} from '../../actions/user_actions'
 import {withRouter} from 'react-router-dom'
@@ -18,7 +19,7 @@ import {withRouter} from 'react-router-dom'
                 config: {
                     name: 'email_imput',
                     type: 'email',
-                    placeholder: "Enter yout email "
+                    placeholder: "Enter your email "
                 },
                 validation: {
                     required: true,
