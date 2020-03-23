@@ -1,41 +1,37 @@
-import React from 'react'
-import Card from '../utils/card'
-
-
-
-
+import React from 'react';
+import Card from '../utils/card';
 
 const CardBlockShop = (props) => {
-   
-   
-    const renderCard = () =>(
+
+    const renderCards = () => (
         props.list ? 
-            props.list.map(card => (
-                <Card 
+            props.list.map(card=>(
+                <Card
                     key={card._id}
                     {...card}
                     grid={props.grid}
-                    />
-                    
+                />
             ))
-            :null
+        :null
     )
+
     return (
-        <div className='card_block_shop'>
+        <div className="card_block_shop">
             <div>
                 <div>
-                    {props.list?
-                    props.list.length ===0?
-                        <div className="no_result">
-                            Sorry, no result
+                    {props.list ?
+                        props.list.length === 0 ?
+                            <div className="no_result">
+                                Sorry, no results
                             </div>
-                    :null
-                :null}
-                {renderCard(props.list)}
+                        :null
+                    :null}
+                    { renderCards(props.list)}
                 </div>
+
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default CardBlockShop
+export default CardBlockShop;
