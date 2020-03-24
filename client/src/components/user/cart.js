@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import UserLayout from '../../hoc/user'
 import { connect} from 'react-redux'
 
-import {getCartItems, removeCartItem} from '../../actions/user_actions'
+import {getCartItems, removeCartItem,onSuccessBuy} from '../../actions/user_actions'
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faFrown from '@fortawesome/fontawesome-free-solid/faFrown'
@@ -72,13 +72,27 @@ export class UserCart extends Component {
 
   
     }
-    transactionError = () => {}
-    transactionCancelled = () => {}
+    transactionError = (er) => {
+        console.log(er)
+    }
+    transactionCancelled = (data) => {
+        console.log('transaction cancelled')
+    }
     transactionSuccess = (data) => {
-        this.setState({
-            showTotal: false,
-            showSuccess: true
+        this.props.dispatch(onSuccessBuy({
+            cartDetail: this.props.user.cartDetail,
+            paymentData: data
+        })).then(()=>{
+            if(this.props.user.successBuy){
+                this.setState({
+                    showTotal: false,
+                    showSuccess: true
+                })
+            }
         })
+
+        
+      
     }
     render() {
         return (
