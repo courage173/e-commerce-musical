@@ -8,10 +8,10 @@ import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope';
 
 
 const Footer = ({data}) => {
-    return (
+
+    const renderFooter = () => (
         data.siteData ?
-        <footer className="bck_b_dark">
-            <div className="container">
+        <div className="container">
                 <div className="logo">
                     Waves
                 </div>
@@ -26,7 +26,7 @@ const Footer = ({data}) => {
                                 />
                                 <div className="nfo">
                                     <div>Address</div>
-                                    <div> {data.siteData[0].address} </div>
+                                    <div>{data.siteData[0].address}</div>
                                 </div>
                             </div>
                             <div className="tag">
@@ -71,12 +71,15 @@ const Footer = ({data}) => {
                     </div>      
                 </div>
             </div>
-        </footer>
-
-: null
+            : null
     )
+    return (
+        
+        <footer className="bck_b_dark">
+            {renderFooter()}
+        </footer>
+        
+    );
 };
 
-
-
-export default  Footer;
+export default Footer;

@@ -82,7 +82,7 @@ export class UpdateSiteNfo extends Component {
     }
 
     updateForm = (element) => {
-        console.log(element)
+       
         const newFormdata = update(element,this.state.formdata,'site_info');
         this.setState({
             formError: false,
@@ -97,7 +97,7 @@ export class UpdateSiteNfo extends Component {
         let formIsValid = isFormValid(this.state.formdata,'site_info')
 
         if(formIsValid){
-            console.log(dataToSubmit)
+           
             this.props.dispatch(updateSiteData(dataToSubmit)).then(()=>{
                 this.setState({ 
                     formSuccess: true
@@ -118,7 +118,7 @@ export class UpdateSiteNfo extends Component {
 
     componentDidMount(){
         this.props.dispatch(getSiteData()).then(()=>{
-            console.log(this.props.site.siteData[0])
+           
 
             const newFormData = populateFields(this.state.formdata,this.props.site.siteData[0])
             this.setState({
