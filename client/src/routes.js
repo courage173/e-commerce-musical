@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Layout from './hoc/layout';
 import Auth from './hoc/auth';
 
-import Home from './components/Home';
+import Home from './components/Home/home';
 import RegisterLogin from './components/Register_login';
 import Register from './components/Register_login/register';
 import Shop from './components/Shop';
