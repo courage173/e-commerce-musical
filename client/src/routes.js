@@ -4,18 +4,18 @@ import { Switch, Route } from 'react-router-dom';
 import Layout from './hoc/layout';
 import Auth from './hoc/auth';
 
-import Home from './components/Home/home';
-import RegisterLogin from './components/Register_login/register_login';
+import Home from './components/Home';
+import RegisterLogin from './components/Register_login';
 import Register from './components/Register_login/register';
-import Shop from './components/Shop/shop';
-import ProductPage from './components/Product/product';
+import Shop from './components/Shop';
+import ProductPage from './components/Product';
 
-import UserDashboard from './components/User/user';
+import UserDashboard from './components/User';
 import AddProduct from './components/User/Admin/add_product';
 import ManageCategories from './components/User/Admin/manage_categories';
-import UserCart from './components/User/cart'
-import UpdateProfile from './components/User/update_profile'
-import ManageSite from './components/User/Admin/manage_site'
+import UserCart from './components/User/cart';
+import UpdateProfile from './components/User/update_profile';
+import ManageSite from './components/User/Admin/manage_site';
 const Routes = () => {
   return(
     <Layout>
