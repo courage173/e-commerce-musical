@@ -5,12 +5,12 @@ import Layout from './hoc/layout';
 import Auth from './hoc/auth';
 
 import Home from './components/Home/home';
-import RegisterLogin from './components/Register_login';
+import RegisterLogin from './components/Register_login/register_login';
 import Register from './components/Register_login/register';
-import Shop from './components/Shop';
-import ProductPage from './components/Product';
+import Shop from './components/Shop/shop';
+import ProductPage from './components/Product/product';
 
-import UserDashboard from './components/User';
+import UserDashboard from './components/User/user';
 import AddProduct from './components/User/Admin/add_product';
 import ManageCategories from './components/User/Admin/manage_categories';
 import UserCart from './components/User/cart'
