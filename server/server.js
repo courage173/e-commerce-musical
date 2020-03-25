@@ -16,6 +16,9 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 app.use(cookieParser())
+//to render the built javascript files of the client
+app.use(express.static('client/build'))
+
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
@@ -24,8 +27,7 @@ cloudinary.config({
 })
 
 
-//to render the built javascript files of the client
-app.use(express.static('client/build'))
+
 //Models
 const {User} = require('./models/user')
 const {Brand} = require('./models/Brand')
@@ -439,11 +441,12 @@ app.post('/api/site/site_data',auth,admin,(req,res)=>{
     )
 })
 //Default
-if(process.env.NODE_ENV === 'production'){
-    const path = require('path')
-    app.get('/*',(req,res)=> {
-        res.sendFile(path.resolve(__dirname,'../client','build','index.html'))
+if( process.env.NODE_ENV === 'production' ){
+    const path = require('path');
+    app.get('/*',(req,res)=>{
+        res.sendfile(path.resolve(__dirname,'../client','build','index.html'))
     })
 }
+
 const port  = 3002 || process.env.PORT
 app.listen(port,()=>console.log(`Server Running on ${port}`))
