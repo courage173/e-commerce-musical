@@ -11,7 +11,7 @@ const async = require('async')
 const app = express()
 
 mongoose.Promise = global.Promise; 
-mongoose.connect(process.env.DATABASE)
+mongoose.connect(process.env.MONGODB_URI)
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
