@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import HomeSlider from './home_slider';
 import HomePromotion from './home_promotion'
 import CardBlock from '../utils/card_block';
 
-import { connect } from 'react-redux';
+import { connect } from './node_modules/react-redux';
 import { getProductsBySell, getProductsByArrival } from '../../actions/products_actions';
 
 class Home extends Component {

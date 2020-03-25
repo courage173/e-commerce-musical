@@ -4,18 +4,18 @@ import { Switch, Route } from 'react-router-dom';
 import Layout from './hoc/layout';
 import Auth from './hoc/auth';
 
-
-import RegisterLogin from './components/Register_login';
+import Home from './components/home';
+import RegisterLogin from './components/register_login';
 import Register from './components/Register_login/register';
 import Shop from './components/Shop';
 import ProductPage from './components/Product';
 
-import UserDashboard from './components/User';
-import AddProduct from './components/User/Admin/add_product';
-import ManageCategories from './components/User/Admin/manage_categories';
-import UserCart from './components/User/cart';
-import UpdateProfile from './components/User/update_profile';
-import ManageSite from './components/User/Admin/manage_site';
+import UserDashboard from './components/user';
+import AddProduct from './components/user/Admin/add_product';
+import ManageCategories from './components/user/Admin/manage_categories';
+import UserCart from './components/user/cart';
+import UpdateProfile from './components/user/update_profile';
+import ManageSite from './components/user/Admin/manage_site';
 const Routes = () => {
   return(
     <Layout>
@@ -31,7 +31,7 @@ const Routes = () => {
         <Route path="/register" exact component={Auth(Register,false)}/>
         <Route path="/register_login" exact component={Auth(RegisterLogin,false)}/>
         <Route path="/shop" exact component={Auth(Shop,null)}/>
-  
+        <Route path="/" exact component={Auth(Home,null)}/>
       </Switch>
     </Layout>
 

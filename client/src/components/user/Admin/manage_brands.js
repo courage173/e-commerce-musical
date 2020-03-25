@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 
 import FormField from '../../utils/Form/formfield';
 import { update, generateData, isFormValid,resetFields} from '../../utils/Form/formActions';
 
-import { connect } from 'react-redux';
+import { connect } from './node_modules/react-redux';
 import { getBrands, addBrand } from '../../../actions/products_actions';
 
 class ManageBrands extends Component {

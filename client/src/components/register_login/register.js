@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import FormField from '../utils/Form/formfield';
 import { update, generateData, isFormValid } from '../utils/Form/formActions';
-import Dialog from '@material-ui/core/Dialog';
+import Dialog from './node_modules/@material-ui/core/Dialog';
 
-import { connect } from 'react-redux';
+import { connect } from './node_modules/react-redux';
 import { registerUser } from '../../actions/user_actions';
 
 class Register extends Component {

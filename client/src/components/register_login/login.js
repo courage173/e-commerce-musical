@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import FormField from '../utils/Form/formfield';
 import { update, generateData, isFormValid } from '../utils/Form/formActions';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from './node_modules/react-router-dom';
 
-import { connect } from 'react-redux';
+import { connect } from './node_modules/react-redux';
 import { loginUser } from '../../actions/user_actions';
 
 class Login extends Component {

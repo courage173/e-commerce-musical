@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from './node_modules/react'
 import UserLayout from '../../hoc/user'
-import { connect} from 'react-redux'
+import { connect} from './node_modules/react-redux'
 
 import {getCartItems, removeCartItem,onSuccessBuy} from '../../actions/user_actions'
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faFrown from '@fortawesome/fontawesome-free-solid/faFrown'
-import faSmile from '@fortawesome/fontawesome-free-solid/faSmile'
+import FontAwesomeIcon from './node_modules/@fortawesome/react-fontawesome'
+import faFrown from './node_modules/@fortawesome/fontawesome-free-solid/faFrown'
+import faSmile from './node_modules/@fortawesome/fontawesome-free-solid/faSmile'
+
 
 import UserProductBlock from '../utils/user/product_block'
 

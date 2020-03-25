@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 import UserLayout from '../../hoc/user';
 import MyButton from '../utils/button';
 import UserHistoryBlock from '../utils/user/history'

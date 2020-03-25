@@ -1,5 +1,5 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from './node_modules/react';
+import Slider from './node_modules/react-slick';
 import MyButton from '../utils/button';
 
 const HomeSlider = (props) => {

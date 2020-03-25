@@ -1,4 +1,4 @@
-import React from 'react'
+import React from './node_modules/react'
 import UserLayout from '../../hoc/user'
 import UpdatePersonalNfo from './update_personal_nfo'
 

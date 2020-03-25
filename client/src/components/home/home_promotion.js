@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 import MyButton from '../utils/button';
 
 const HomePromotion = (props) => {

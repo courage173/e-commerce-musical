@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from './node_modules/react'
 import { update, generateData, isFormValid,populateFields } from '../../utils/Form/formActions';
-import { connect } from 'react-redux';
+import { connect } from './node_modules/react-redux';
 import FormField from '../../utils/Form/formfield';
 import  {getSiteData,updateSiteData} from '../../../actions/site_actions'
 
