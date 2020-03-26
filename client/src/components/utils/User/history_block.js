@@ -1,23 +1,24 @@
-import React from 'react'
-import Moment from 'react-moment'
+import React from 'react';
+import moment from 'moment';
 
 const UserHistoryBlock = (props) => {
 
+
     const renderBlocks = () => (
-        props.products ? 
+        props.products ?
             props.products.map((product,i)=>(
                 <tr key={i}>
-                    <td><Moment format="DD-MM-YYYY">{product.dateOfPurchase}</Moment> </td>
-                    <td> {product.brand} {product.name}</td>
+                    <td>{moment(product.dateOfPurchase).format("MM-DD-YYYY")}</td>
+                    <td>{product.brand} {product.name}</td>
                     <td>$ {product.price}</td>
                     <td>{product.quantity}</td>
                 </tr>
             ))
-
         :null
     )
+
     return (
-        <div className='history_block'>
+        <div className="history_blocks">
             <table>
                 <thead>
                     <tr>
@@ -25,7 +26,6 @@ const UserHistoryBlock = (props) => {
                         <th>Product</th>
                         <th>Price paid</th>
                         <th>Quantity</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@ const UserHistoryBlock = (props) => {
                 </tbody>
             </table>
         </div>
-    )
-}
+    );
+};
 
-export default UserHistoryBlock
+export default UserHistoryBlock;

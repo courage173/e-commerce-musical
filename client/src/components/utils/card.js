@@ -3,7 +3,6 @@ import MyButton from './button';
 
 import { connect } from 'react-redux';
 import { addToCart } from '../../actions/user_actions';
-import { withRouter} from 'react-router-dom'
 
 class Card extends Component {
 
@@ -60,7 +59,7 @@ class Card extends Component {
                                     props.user.userData.isAuth ?
                                         this.props.dispatch(addToCart(props._id))
                                     :
-                                        this.props.history.push('/register_login')
+                                        console.log('you need to log in')
                                 }}
                             />
                         </div>
@@ -77,4 +76,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default  connect(mapStateToProps)(withRouter(Card));
+export default connect(mapStateToProps)(Card);
