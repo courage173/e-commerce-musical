@@ -6,8 +6,9 @@ import { addToCart } from '../../actions/user_actions';
 
 class Card extends Component {
 
-    renderCardImage(images){
-        if(images.length > 0){
+    renderCardImage(images) {
+
+        if (images.length > 0 && images[0]) {
             return images[0].url
         } else {
             return '/images/image_not_availble.png'
@@ -22,23 +23,23 @@ class Card extends Component {
                 <div
                     className="image"
                     style={{
-                        background:`url(${this.renderCardImage(props.images)}) no-repeat`
+                        background: `url(${this.renderCardImage(props.images)}) no-repeat`
                     }}
                 >  </div>
-                    <div className="action_container">
-                        <div className="tags">
-                            <div className="brand">{props.brand.name}</div>
-                            <div className="name">{props.name}</div>
-                            <div className="name">${props.price}</div>
-                        </div>
-                    
-                    { props.grid ?
+                <div className="action_container">
+                    <div className="tags">
+                        <div className="brand">{props.brand.name}</div>
+                        <div className="name">{props.name}</div>
+                        <div className="name">${props.price}</div>
+                    </div>
+
+                    {props.grid ?
                         <div className="description">
                             <p>
                                 {props.description}
-                            </p>    
+                            </p>
                         </div>
-                        :null
+                        : null
                     }
                     <div className="actions">
                         <div className="button_wrapp">
@@ -55,10 +56,10 @@ class Card extends Component {
                         <div className="button_wrapp">
                             <MyButton
                                 type="bag_link"
-                                runAction={()=>{
+                                runAction={() => {
                                     props.user.userData.isAuth ?
                                         this.props.dispatch(addToCart(props._id))
-                                    :
+                                        :
                                         console.log('you need to log in')
                                 }}
                             />

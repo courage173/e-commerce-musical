@@ -10,27 +10,27 @@ const ProdNfo = (props) => {
 
     const showProdTags = (detail) => (
         <div className="product_tags">
-            { detail.shipping ?
+            {detail.shipping ?
                 <div className="tag">
-                    <div><FontAwesomeIcon icon={faTruck}/></div>
+                    <div><FontAwesomeIcon icon={faTruck} /></div>
                     <div className="tag_text">
                         <div>Free shipping</div>
                         <div>And return</div>
                     </div>
                 </div>
-            :null
+                : null
             }
-            { detail.available ?
+            {detail.available ?
                 <div className="tag">
-                    <div><FontAwesomeIcon icon={faCheck}/></div>
+                    <div><FontAwesomeIcon icon={faCheck} /></div>
                     <div className="tag_text">
                         <div>Available</div>
                         <div>in store</div>
                     </div>
                 </div>
-            :
+                :
                 <div className="tag">
-                    <div><FontAwesomeIcon icon={faTimes}/></div>
+                    <div><FontAwesomeIcon icon={faTimes} /></div>
                     <div className="tag_text">
                         <div>Not Available</div>
                         <div>Preorder only</div>
@@ -42,12 +42,12 @@ const ProdNfo = (props) => {
 
     const showProdActions = (detail) => (
         <div className="product_actions">
-            <div className="price">$ { detail.price }</div>
+            <div className="price">$ {detail.price}</div>
             <div className="cart">
                 <MyButton
                     type="add_to_cart_link"
-                    runAction={()=>{
-                       props.addToCart(detail._id)
+                    runAction={() => {
+                        props.addToCart(detail._id)
                     }}
                 />
             </div>
@@ -76,9 +76,9 @@ const ProdNfo = (props) => {
             <p>
                 {detail.description}
             </p>
-            { showProdTags(detail)}
-            { showProdActions(detail)}
-            { showProdSpecifications(detail)}
+            {showProdTags(detail)}
+            {showProdActions(detail)}
+            {showProdSpecifications(detail)}
         </div>
     );
 };

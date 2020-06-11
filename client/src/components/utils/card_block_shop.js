@@ -4,29 +4,29 @@ import Card from '../utils/card';
 const CardBlockShop = (props) => {
 
     const renderCards = () => (
-        props.list ? 
-            props.list.map(card=>(
+        props.list ?
+            props.list.map(card => (
                 <Card
                     key={card._id}
                     {...card}
                     grid={props.grid}
                 />
             ))
-        :null
+            : null
     )
 
     return (
         <div className="card_block_shop">
             <div>
-                <div>
+                <div id='card_block_shop'>
                     {props.list ?
                         props.list.length === 0 ?
                             <div className="no_result">
                                 Sorry, no results
                             </div>
-                        :null
-                    :null}
-                    { renderCards(props.list)}
+                            : null
+                        : null}
+                    {renderCards(props.list)}
                 </div>
 
             </div>

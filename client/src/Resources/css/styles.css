@@ -894,3 +894,127 @@ footer .business_nfo .nfo {
     background-position: center center !important;
     border: 1px solid #eaeaea;
 }
+
+@media only screen and (max-width:  768px){
+  
+    header{
+        height: 4rem;
+    }
+    header .container .right .top, header .container .right .bottom {
+        padding: 0;
+    }
+    header .container .right{
+        margin-right: 1.3rem;
+        height: 4rem;
+    }
+    header .logo{
+        font-size: 23px;
+        padding-left: 3px;;
+    }
+    header .container .left {
+        width: 123px;
+    }
+    .header .container .right {
+        flex-grow: 0;
+    }
+    .featured_container .featured_image{
+        height: 525px!important;
+    }
+    .page_container{
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+    }
+    .card_item_wrapper{
+        width: 100%!important;
+        padding: 0 24px
+    }
+
+    .shop_wrapper .right {
+        width: 100%;
+    }
+    .load_more_container span {
+        font-size: 14px;
+    }
+    .home_promotion .tag.title {
+        font-size: 23px;
+    }
+    .home_promotion .tag.low_title {
+        font-size: 27px;
+    }
+    #footer-right{
+        display: none;
+    }
+    #icon{
+        font-size: 18px;
+        padding: 5px
+       
+    }
+    footer .business_nfo .nfo {
+        padding-left: 29px;
+    }
+    .shop_wrapper {
+        flex-direction: column;
+        margin: 0 10px;
+    }
+    #card_block_shop{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product_detail_wrapper {
+        flex-direction: column;
+    }
+    #product_detail_left_img{
+        width: 100%!important;
+    }
+    .product_detail_wrapper .product_image_container {
+        margin-top: 30px;
+         padding: 10px
+    }
+    .product_tags{
+        display: flex;
+        justify-content: center;
+    }
+    .product_actions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-info{
+        
+    }
+    .product_detail_wrapper .right {
+        min-height: 400px;
+        text-align: center;
+    }
+    .register_login_container {
+        flex-direction: column;
+        border: none;
+        border-top: none;
+        box-sizing: border-box;
+        margin: 0
+}
+    .user_container {
+        flex-direction: column;
+    }
+    .user_container .user_right {
+        padding: 0;
+        text-align: center;
+    }
+    .user_container .user_left_nav .links a {
+        width:100%;
+        text-align: center;
+    }
+    .admin-link{
+        text-align: center;
+    }
+    input, textarea, select{
+        width: 93%;
+    }
+    .user_product_block .item .image{
+        width: 164px!important;
+    }
+}
+

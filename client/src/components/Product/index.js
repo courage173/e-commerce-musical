@@ -10,24 +10,24 @@ import { getProductDetail, clearProductDetail } from '../../actions/products_act
 
 class ProductPage extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
         const id = this.props.match.params.id;
-        this.props.dispatch(getProductDetail(id)).then(()=>{
-            if(!this.props.products.prodDetail){
+        this.props.dispatch(getProductDetail(id)).then(() => {
+            if (!this.props.products.prodDetail) {
                 this.props.history.push('/');
             }
         })
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.props.dispatch(clearProductDetail())
     }
 
 
-    addToCartHandler(id){
+    addToCartHandler(id) {
         this.props.dispatch(addToCart(id))
     }
-    
+
     render() {
         return (
             <div>
@@ -35,27 +35,27 @@ class ProductPage extends Component {
                     title="Product detail"
                 />
                 <div className="container">
-                {
-                    this.props.products.prodDetail ?
-                    <div className="product_detail_wrapper">
-                        <div className="left">
-                            <div style={{width:'500px'}}>
-                                <ProdImg
-                                    detail={this.props.products.prodDetail}
-                                />
+                    {
+                        this.props.products.prodDetail ?
+                            <div className="product_detail_wrapper">
+                                <div className="left">
+                                    <div style={{ width: '500px' }} id='product_detail_left_img'>
+                                        <ProdImg
+                                            detail={this.props.products.prodDetail}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="right">
+                                    <ProdNfo
+                                        addToCart={(id) => this.addToCartHandler(id)}
+                                        detail={this.props.products.prodDetail}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className="right">
-                            <ProdNfo
-                                addToCart={(id)=> this.addToCartHandler(id)}
-                                detail={this.props.products.prodDetail}
-                            />
-                        </div>
-                    </div>
-                    : 'Loading'
-                }
+                            : 'Loading'
+                    }
 
-                </div>                
+                </div>
             </div>
         );
     }

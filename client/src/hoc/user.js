@@ -36,7 +36,7 @@ const admin = [
 const UserLayout = (props) => {
 
     const generateLinks = (links) => (
-        links.map((item,i)=>(
+        links.map((item, i) => (
             <Link to={item.linkTo} key={i}>
                 {item.name}
             </Link>
@@ -50,16 +50,16 @@ const UserLayout = (props) => {
                 <div className="user_left_nav">
                     <h2>My account</h2>
                     <div className="links">
-                        { generateLinks(links)}
+                        {generateLinks(links)}
                     </div>
-                    { props.user.userData.isAdmin ?
-                        <div>
+                    {props.user.userData.isAdmin ?
+                        <div className='admin-link'>
                             <h2>Admin</h2>
                             <div className="links">
-                                { generateLinks(admin)}
+                                {generateLinks(admin)}
                             </div>
                         </div>
-                    :null
+                        : null
                     }
 
                 </div>
